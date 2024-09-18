@@ -24,3 +24,31 @@ dockerhub_username: ваш_логин_на_докерхабе
 - Проект Kittygram доступен по доменному имени, указанному в `tests.yml`.
 - Пуш в ветку main запускает тестирование и деплой Kittygram, а после успешного деплоя вам приходит сообщение в телеграм.
 - В корне проекта есть файл `kittygram_workflow.yml`.
+
+# Проект контейнеры и CI/CD для Kittygram
+
+Проект подготовлен в рамках финального задания спринта №17 в целях получения навыков настройки и запуска проектов в контейнерах, настройки автоматического тестирования и деплоя проектов на удалённый сервер.
+
+# Стек технологий
+- Python 3.9
+- Django 3.2.3
+- gunicorn 20.1.0
+- PyYAML 6.0
+- djoser 2.1.0
+- djangorestframework 3.12.4
+- Pillow 9.0.0
+- webcolors 1.11.1
+- psycopg2-binary 2.9.3
+
+# Инструкция по запуску
+
+# Эндпоинты
+- https://kiwinwin.duckdns.org/signup - регистрация нового пользователя;
+- https://kiwinwin.duckdns.org/signin - войти на сайт;
+- https://kiwinwin.duckdns.org/ - главная страница сайта;
+- https://kiwinwin.duckdns.org/cats/add - добавить нового кота;
+- https://kiwinwin.duckdns.org/cats/<id> - просмотр профиля отдельного кота
+
+# Авторы
+- команда Яндекс Практикума [yandex-praktikum] (https://github.com/yandex-praktikum)
+- Галия Байбулова [kiwinwin] (https://github.com/kiwinwin)
