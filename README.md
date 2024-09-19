@@ -41,6 +41,36 @@ dockerhub_username: ваш_логин_на_докерхабе
 - psycopg2-binary 2.9.3
 
 # Инструкция по запуску
+1. форкнуть репозиторий проекта: kiwinwin/kittygram_final
+2. клонировать форкнутый репозиторий
+3. в репозитории проекта во вкладке settings/Secrets and variables/actions определить ваши secrets:
+- ALLOWED_HOSTS (доменное имя вашего сайта)
+- SECRET_KEY (SECRET_KEY вашего проекта )
+Логин и пароль вашего профиля на Docker.com:
+- DOCKER_PASSWORD
+- DOCKER_USERNAME
+Данные вашего удалённого сервера:
+- HOST (IP-адрес вашего сервера)
+- SSH_KEY (закрытый SSH-ключ)
+- USER (имя пользователя)
+- SSH_PASSPHRASE (passphrase от закрытого SSH-ключа)
+Данные для отправки сообщения о деплое проекта:
+- TELEGRAM_TO (id получателя сообщения)
+- TELEGRAM_TOKEN (token робота)
+4. на сервере:
+
+- измените настройки location в секции server в файле /etc/nginx/sites-enabled/default:
+server {
+    server_name <IP-адрес вашего сервера> <доменное имя вашего сайта>;
+    location / {
+        proxy_set_header Host $http_host;
+        proxy_pass http://127.0.0.1:9000;
+    }
+}
+5. сделайте пуш:
+- git add .
+- git commit -m "<ваше сообщение коммита>"
+- git push
 
 # Эндпоинты
 - https://kiwinwin.duckdns.org/signup - регистрация нового пользователя;
