@@ -12,19 +12,19 @@ services:
     volumes:
       - pg_data_production:/var/lib/postgresql/data
   backend:
-    image: ${{ secrets.DOCKER_USERNAME }}/kittygram_backend
+    image: kiwinwin/kittygram_backend
     env_file: .env
     volumes:
     - media_volume:/media
     - static_volume:/backend_static
   frontend:
     env_file: .env
-    image: ${{ secrets.DOCKER_USERNAME }}/kittygram_frontend
+    image: kiwinwin/kittygram_frontend
     command: cp -r /app/build/. /static/
     volumes:
       - static_volume:/static
   gateway:
-    image: ${{ secrets.DOCKER_USERNAME }}/kittygram_gateway
+    image: kiwinwin/kittygram_gateway
     env_file: .env
     ports:
       - 9000:80
