@@ -59,7 +59,7 @@ dockerhub_username: ваш_логин_на_докерхабе
 - TELEGRAM_TOKEN (token робота)
 4. на сервере:
 
-- измените настройки location в секции server в файле /etc/nginx/sites-enabled/default:
+- определите настройки location в секции server в файле /etc/nginx/sites-enabled/default:
 server {
     server_name <IP-адрес вашего сервера> <доменное имя вашего сайта>;
     location / {
@@ -67,10 +67,12 @@ server {
         proxy_pass http://127.0.0.1:9000;
     }
 }
-5. сделайте пуш:
-- git add .
-- git commit -m "<ваше сообщение коммита>"
-- git push
+5. в директории проекта в файле docker-compose.production.yml замените строчки
+    image: kiwinwin/kittygram_gateway на image: <логин вашего профиля на Docker.com>/kittygram_gateway 
+6. сделайте пуш:
+    git add .
+    git commit -m "<ваше сообщение коммита>"
+    git push
 
 # Эндпоинты
 - https://kiwinwin.duckdns.org/signup - регистрация нового пользователя;
