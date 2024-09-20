@@ -44,8 +44,6 @@ dockerhub_username: ваш_логин_на_докерхабе
 1. форкнуть репозиторий проекта: kiwinwin/kittygram_final
 2. клонировать форкнутый репозиторий
 3. в репозитории проекта во вкладке settings/Secrets and variables/actions определить ваши secrets:
-- ALLOWED_HOSTS (доменное имя вашего сайта)
-- SECRET_KEY (SECRET_KEY вашего проекта )
 Логин и пароль вашего профиля на Docker.com:
 - DOCKER_PASSWORD
 - DOCKER_USERNAME
@@ -58,6 +56,8 @@ dockerhub_username: ваш_логин_на_докерхабе
 - TELEGRAM_TO (id получателя сообщения)
 - TELEGRAM_TOKEN (token робота)
 4. на сервере:
+
+- создайте директорию kittygram и создайте в ней файл .env. В файле .env определите значения переменных SECRET_KEY и ALLOWED_HOSTS;
 
 - определите настройки location в секции server в файле /etc/nginx/sites-enabled/default:
 server {
